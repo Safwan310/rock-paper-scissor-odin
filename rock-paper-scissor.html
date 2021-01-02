@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      let choiceArray = ["rock", "paper", "scissors"];
+      let pc = 0;
+      let you = 0;
+      function computerPlay(){
+        return choiceArray[Math.floor(Math.random()*3)];
+      }
+      function playRound(playerSelection, computerSelection){
+        if(playerSelection===computerSelection){
+          console.log("It's a tie");
+        }
+        else if((playerSelection=="rock"&&computerSelection=="paper")||(playerSelection=="paper"&&computerSelection=="scissors")||playerSelection=="scissors"&&computerSelection=="rock"){
+          console.log("You lose!"+computerSelection+" beats "+playerSelection+"Scores: (PC:You): "+ ++pc+":"+you);
+        }
+        else{
+          console.log("You win! "+playerSelection+" beats "+computerSelection+"Scores: (PC:You): "+pc+":"+ ++you);
+        }
+      }
+      function game(){
+        for(let i=0;i<5;i++){
+        let playerSelection = prompt("Rock, Paper, Scissors?:");
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+      }
+      if(you===pc){
+        console.log("It's a tie");
+      }
+      else if (you>pc) {
+        console.log("Congratulations! you win");
+      }
+      else{
+        console.log("Oops! better luck next time");
+      }
+    }
+    game();
+
+    </script>
+      </body>
+      </html>
