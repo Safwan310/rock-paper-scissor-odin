@@ -1,47 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset = "utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-  </head>
-  <body>
-    <script>
-      let choiceArray = ["rock", "paper", "scissors"];
-      let pc = 0;
-      let you = 0;
-      function computerPlay(){
-        return choiceArray[Math.floor(Math.random()*3)];
-      }
-      function playRound(playerSelection, computerSelection){
-        if(playerSelection===computerSelection){
-          console.log("It's a tie");
-        }
-        else if((playerSelection=="rock"&&computerSelection=="paper")||(playerSelection=="paper"&&computerSelection=="scissors")||playerSelection=="scissors"&&computerSelection=="rock"){
-          console.log("You lose!"+computerSelection+" beats "+playerSelection+"Scores: (PC:You): "+ ++pc+":"+you);
-        }
-        else{
-          console.log("You win! "+playerSelection+" beats "+computerSelection+"Scores: (PC:You): "+pc+":"+ ++you);
-        }
-      }
-      function game(){
-        for(let i=0;i<5;i++){
-        let playerSelection = prompt("Rock, Paper, Scissors?:");
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
-      }
-      if(you===pc){
-        console.log("It's a tie");
-      }
-      else if (you>pc) {
-        console.log("Congratulations! you win");
-      }
-      else{
-        console.log("Oops! better luck next time");
-      }
-    }
-    game();
+    <link rel = "stylesheet" href = "styles.css">
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <h2>An interactive game between you and your computer. First to five points wins the game</h2>
+    <div class = "playbuttons">
+        <button id = "play">Rock</button>
+        <button id = "play">Paper</button>
+        <button id = "play">Scissors</button>
+    </div>
+    <p id = "announcer"></p>
+    <div class = "scoreboard">
+        <h2>Points:</h2>
+        <p id="youscore">You:0 </p>
+        <p id="pcscore">PC:0 </p>
+        <button id = 'reset'>Restart Game</button>
+    </div>
 
-    </script>
-      </body>
-      </html>
+    <script src ="script.js"></script>
+</body>
+</html>
